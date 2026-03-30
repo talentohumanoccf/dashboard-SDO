@@ -10,7 +10,7 @@ import {
   Briefcase, CheckCircle, BarChart3, LayoutDashboard,
   ClipboardCheck, Search, Sparkles, Heart, GraduationCap, ShieldCheck, 
   UserCircle, Zap, Rocket, Layers, Sun, Download, Menu, X, Bell, Settings,
-  Table as TableIcon
+  Table as TableIcon, ArrowRight
 } from 'lucide-react';
 
 const App = () => {
@@ -79,85 +79,93 @@ const App = () => {
   const archetypes = [
     {
       id: 'z',
-      gen: 'Centennials (Gen Z)',
-      persona: 'Valentina, 24 años',
+      gen: 'Centennials',
+      tag: 'Gen Z',
+      persona: 'Valentina',
+      age: '24 años',
       image: 'https://i.imgur.com/kTBTHds.png',
       title: 'La Exploradora del Propósito',
       quote: 'Quiero un trabajo flexible que me deje tiempo para la maestría y mi mascota.',
       color: '#3b82f6',
       stats: { mascota: 84, edu: 89, pop: 45 },
-      motivators: ['Tiempo Libre', 'Causas Sociales', 'Experiencias'],
+      motivators: ['Tiempo Libre', 'Causas Sociales', 'Experiencias Digitales'],
       adn: [
         'Priorizan esquemas de trabajo remoto o híbrido.',
-        'Alta demanda de apoyo en salud mental y psicológica.',
-        'Prefieren reconocimiento digital y entradas a eventos.'
+        'Alta demanda de apoyo en salud mental y emocional.',
+        'Prefieren reconocimiento inmediato y digital.'
       ],
       strategy: {
         title: 'Pasaporte de Flexibilidad',
-        desc: 'Sistemas de puntos canjeables por días para veterinaria o tardes de desconexión garantizada.',
+        desc: 'Beneficios bajo demanda: días para veterinaria o suscripciones de meditación.',
         icon: <Rocket className="text-blue-100" />
       }
     },
     {
       id: 'y',
-      gen: 'Millennials (Gen Y)',
-      persona: 'Daniel, 34 años',
+      gen: 'Millennials',
+      tag: 'Gen Y',
+      persona: 'Daniel',
+      age: '34 años',
       image: 'https://i.imgur.com/23TgYkZ.png',
       title: 'El Arquitecto del Equilibrio',
-      quote: 'Busco optimizar mis finanzas, hacer posgrados y ahorrar tiempo en mi día a día.',
+      quote: 'Busco optimizar mis finanzas, hacer posgrados y ahorrar tiempo vital.',
       color: '#10b981',
       stats: { edu: 75, salud: 58, pop: 120 },
-      motivators: ['Ahorro de Tiempo', 'Liderazgo', 'Bonos Económicos'],
+      motivators: ['Ahorro de Tiempo', 'Liderazgo Orgánico', 'Bonos Económicos'],
       adn: [
-        'Valoran facilitadores de vida como transporte y casino.',
-        'Activos en convenios comerciales y gimnasios.',
-        'Exigen planes de carrera claros y aplicables.'
+        'Valoran facilitadores como transporte y alimentación.',
+        'Participación activa en beneficios deportivos.',
+        'Demandan planes de carrera transparentes.'
       ],
       strategy: {
         title: 'Marketplace de Bienestar',
-        desc: 'Bolsa de puntos mensual para subsidio de alimentación, seguros o ahorro educativo.',
+        desc: 'Puntos mensuales para elegir seguros, subsidios de casino o ahorro académico.',
         icon: <Layers className="text-emerald-100" />
       }
     },
     {
       id: 'x',
       gen: 'Generación X',
-      persona: 'Carolina, 48 años',
+      tag: 'Gen X',
+      persona: 'Carolina',
+      age: '48 años',
       image: 'https://i.imgur.com/zIGIJZ0.png',
       title: 'La Guardiana de Estabilidad',
-      quote: 'Mi prioridad es la salud preventiva y asegurar la estabilidad de mi hogar.',
+      quote: 'Mi prioridad es la salud preventiva y asegurar el futuro de mi hogar.',
       color: '#8b5cf6',
       stats: { salud: 81, pre: 62, pop: 80 },
-      motivators: ['Estabilidad Familiar', 'Salud Preventiva', 'Reconocimiento'],
+      motivators: ['Estabilidad Familiar', 'Salud Preventiva', 'Prestigio'],
       adn: [
-        'Inclinación por conferencias de vida, crianza y familia.',
-        'Alta participación en temas espirituales.',
-        'Actividades recreativas centradas en el núcleo familiar.'
+        'Inclinación por conferencias de familia y crianza.',
+        'Alta participación en temas de espiritualidad.',
+        'Eventos recreativos de integración familiar.'
       ],
       strategy: {
         title: 'Bienestar 360° Familiar',
-        desc: 'Pólizas de salud familiar, ferias universitarias para hijos y talleres de inteligencia financiera.',
+        desc: 'Pólizas de salud extendidas, ferias universitarias y educación financiera.',
         icon: <ShieldCheck className="text-purple-100" />
       }
     },
     {
       id: 'b',
       gen: 'Baby Boomers',
-      persona: 'Roberto, 62 años',
+      tag: 'Boomers',
+      persona: 'Roberto',
+      age: '62 años',
       image: 'https://i.imgur.com/kiMB1qT.png',
       title: 'El Mentor del Legado',
-      quote: 'Quiero transmitir mi experiencia y enfocarme en mi jubilación tranquila.',
+      quote: 'Quiero transmitir mi experiencia y enfocarme en una jubilación digna.',
       color: '#f59e0b',
       stats: { pre: 96, salud: 88, pop: 25 },
-      motivators: ['Dejar Legado', 'Tranquilidad Integral', 'Homenajes'],
+      motivators: ['Dejar Legado', 'Tranquilidad Integral', 'Reconocimientos'],
       adn: [
-        'Interés supremo en Artes y Oficios pre-retiro.',
-        'Requieren atención médica continua y de fácil acceso.',
-        'Buscan espacios de integración, respeto y reconocimiento.'
+        'Interés en talleres de Artes y Oficios pre-retiro.',
+        'Requieren medicina continua de fácil acceso.',
+        'Valoran espacios de respeto y mentoría.'
       ],
       strategy: {
         title: 'Alumni & Mentors',
-        desc: 'Programa de mentoría a jóvenes, emprendimiento senior y apoyo legal en pensiones.',
+        desc: 'Programas de mentoría senior y apoyo legal/administrativo para pensiones.',
         icon: <Sun className="text-amber-100" />
       }
     }
@@ -182,24 +190,20 @@ const App = () => {
   };
 
   const navItems = [
-    { id: 'happiness', label: 'Building Happiness', icon: <Smile size={20} /> },
+    { id: 'happiness', label: 'Happiness Index', icon: <Smile size={20} /> },
     { id: 'productivity', label: 'Productividad', icon: <Briefcase size={20} /> },
-    { id: 'archetypes', label: 'Arquetipos Generacionales', icon: <Users size={20} /> },
+    { id: 'archetypes', label: 'Arquetipos ADN', icon: <Users size={20} /> },
   ];
 
   return (
-    <div className="min-h-screen bg-[#F1F5F9] flex font-sans">
+    <div className="min-h-screen bg-[#F5F7F9] flex font-sans">
       
-      {/* SIDEBAR ACTUALIZADO CON LOGO */}
+      {/* SIDEBAR */}
       <aside className={`bg-white border-r border-slate-200 transition-all duration-300 fixed h-full z-50 ${isSidebarOpen ? 'w-64' : 'w-24'}`}>
         <div className="p-4 flex flex-col items-center justify-center border-b border-slate-50 min-h-[120px]">
           <div className="relative w-full flex items-center justify-between gap-2 px-2">
             <div className={`transition-all duration-500 overflow-hidden flex items-center justify-center ${isSidebarOpen ? 'w-32' : 'w-14 mx-auto'}`}>
-              <img 
-                src={brandLogo} 
-                alt="Logo Comfamiliar" 
-                className="w-full h-auto object-contain"
-              />
+              <img src={brandLogo} alt="Logo Comfamiliar" className="w-full h-auto object-contain" />
             </div>
             {isSidebarOpen && (
               <button onClick={() => setSidebarOpen(false)} className="p-1.5 text-slate-400 hover:bg-slate-50 rounded-lg transition-colors">
@@ -221,7 +225,7 @@ const App = () => {
               onClick={() => setActiveTab(item.id)}
               className={`w-full flex items-center gap-4 px-4 py-3.5 rounded-2xl transition-all relative group ${
                 activeTab === item.id 
-                  ? 'bg-indigo-600 text-white shadow-xl shadow-indigo-200 font-bold' 
+                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-200 font-bold' 
                   : 'text-slate-500 hover:bg-slate-50 font-medium'
               }`}
             >
@@ -234,102 +238,75 @@ const App = () => {
             </button>
           ))}
         </nav>
-
-        <div className="absolute bottom-8 left-0 w-full px-4">
-           <div className={`p-4 bg-slate-50 rounded-2xl transition-all duration-300 border border-slate-100 ${isSidebarOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-90 invisible'}`}>
-              <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1 text-center">Gobernanza Institucional</p>
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-[11px] font-black text-slate-600">Online v2.6</span>
-              </div>
-           </div>
-        </div>
       </aside>
 
-      {/* MAIN CONTENT */}
+      {/* CONTENIDO PRINCIPAL */}
       <div className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-24'}`}>
         
         {/* TOPBAR */}
         <header className="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 px-8 h-20 flex items-center justify-between">
           <div>
-            <h2 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">Centro de Inteligencia Organizacional</h2>
+            <h2 className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">Intelligence Dashboard</h2>
             <p className="text-slate-900 font-black text-xl capitalize tracking-tight">{activeTab.replace('-', ' ')}</p>
           </div>
-          <div className="flex items-center gap-6">
-             <div className="hidden lg:flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-4 py-2 rounded-2xl shadow-sm">
-                <Calendar size={14} className="text-indigo-600" />
-                <span className="text-[11px] font-black text-indigo-700 uppercase tracking-wider">Gestión 2024 - 2026</span>
+          <div className="flex items-center gap-4">
+             <div className="flex items-center gap-2 bg-emerald-50 border border-emerald-100 px-4 py-2 rounded-2xl">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <span className="text-[10px] font-black text-emerald-700 uppercase tracking-widest">En Vivo</span>
              </div>
-             <button className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-2xl text-xs font-black hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-200 active:scale-95">
-                <Download size={14} /> PDF Report
+             <button className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-2xl text-xs font-black hover:bg-indigo-600 transition-all shadow-md active:scale-95">
+                <Download size={14} /> Reporte Ejecutivo
              </button>
           </div>
         </header>
 
         <main className="p-8 max-w-7xl mx-auto">
           
-          {/* --- SESIÓN 1: BUILDING HAPPINESS --- */}
+          {/* --- SESIÓN 1: HAPPINESS (RESUMIDA) --- */}
           {activeTab === 'happiness' && (
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-10">
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="bg-white p-7 rounded-[2rem] shadow-sm border border-slate-100 relative overflow-hidden group hover:shadow-xl hover:shadow-indigo-500/5 transition-all">
+                <div className="bg-white p-7 rounded-[2rem] border border-slate-100 relative overflow-hidden group">
                   <div className="relative z-10">
-                    <p className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em] mb-2">Índice Global de Felicidad</p>
-                    <h3 className="text-5xl font-black text-slate-800 tracking-tighter">80.0%</h3>
-                    <div className="mt-5 flex items-center gap-2 text-emerald-600 font-black text-[11px] bg-emerald-50 w-fit px-3 py-1 rounded-full border border-emerald-100">
-                      <TrendingUp size={14} /> +5.0% CRECIMIENTO VS 2024
-                    </div>
+                    <p className="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-1">Índice Global</p>
+                    <h3 className="text-5xl font-black text-slate-800">80.0%</h3>
+                    <p className="text-emerald-500 font-bold text-xs mt-4">+5.0% vs año anterior</p>
                   </div>
-                  <Smile className="absolute -right-6 -bottom-6 w-40 h-40 text-indigo-50/40 group-hover:rotate-12 transition-transform duration-700" />
+                  <Smile className="absolute -right-4 -bottom-4 w-32 h-32 text-indigo-50/40" />
                 </div>
-                <div className="bg-white p-7 rounded-[2rem] shadow-sm border border-slate-100">
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">Categoría Excelencia</p>
-                  <h3 className="text-3xl font-black text-slate-800 tracking-tight">Sostenibilidad</h3>
-                  <p className="text-indigo-600 font-black text-2xl mt-2 tracking-tighter">93.5%</p>
+                <div className="bg-white p-7 rounded-[2rem] border border-slate-100 flex flex-col justify-center">
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Liderazgo</p>
+                  <h3 className="text-2xl font-black text-slate-800">Sostenibilidad</h3>
+                  <p className="text-indigo-600 font-bold">93.5%</p>
                 </div>
-                <div className="bg-white p-7 rounded-[2rem] shadow-sm border border-slate-100">
-                  <p className="text-[10px] font-black text-rose-400 uppercase tracking-[0.2em] mb-2">Área Crítica de Intervención</p>
-                  <h3 className="text-3xl font-black text-slate-800 tracking-tight">Odontología</h3>
-                  <p className="text-rose-500 font-black text-2xl mt-2 tracking-tighter">40.8%</p>
+                <div className="bg-white p-7 rounded-[2rem] border border-slate-100 flex flex-col justify-center">
+                  <p className="text-[10px] font-black text-rose-400 uppercase tracking-widest mb-1">Foco de Mejora</p>
+                  <h3 className="text-2xl font-black text-slate-800">Odontología</h3>
+                  <p className="text-rose-500 font-bold">40.8%</p>
                 </div>
               </section>
 
-              {/* Matriz de Calor */}
-              <section className="bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
-                  <div>
-                    <h3 className="font-black text-2xl text-slate-800 flex items-center gap-4 tracking-tight">
-                      <TableIcon className="text-indigo-500 w-8 h-8" />
-                      Matriz de Desempeño Multidimensional
-                    </h3>
-                    <p className="text-slate-400 font-medium text-sm mt-1">Cruce institucional por sub-área y categoría de evaluación.</p>
-                  </div>
-                  <div className="flex gap-4 p-2 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div className="flex items-center gap-2"><div className="w-3 h-3 bg-emerald-500 rounded-full"></div> <span className="text-[10px] font-black text-slate-500">EXCELENCIA</span></div>
-                    <div className="flex items-center gap-2"><div className="w-3 h-3 bg-rose-500 rounded-full"></div> <span className="text-[10px] font-black text-slate-500">CRÍTICO</span></div>
-                  </div>
-                </div>
-                <div className="overflow-x-auto rounded-2xl border border-slate-100 shadow-inner">
-                  <table className="w-full border-collapse">
-                    <thead>
+              <section className="bg-white p-8 rounded-[2.5rem] border border-slate-100 overflow-hidden">
+                <h3 className="font-black text-xl text-slate-800 mb-6 flex items-center gap-3">
+                  <TableIcon className="text-indigo-500" /> Matriz de Desempeño Institucional
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-slate-50">
                       <tr>
-                        <th className="text-left p-5 bg-slate-50 text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] border-b border-slate-100">UNIDAD ESTRATÉGICA</th>
+                        <th className="p-4 text-left text-[10px] font-black text-slate-400 uppercase tracking-widest border-b">Categoría</th>
                         {heatmapData.subAreas.map((area, idx) => (
-                          <th key={idx} className="p-5 bg-slate-50 text-[10px] font-black text-slate-500 uppercase tracking-wider border-b border-slate-100 text-center">
-                            {area}
-                          </th>
+                          <th key={idx} className="p-4 text-center text-[10px] font-black text-slate-500 uppercase border-b">{area}</th>
                         ))}
                       </tr>
                     </thead>
                     <tbody>
                       {heatmapData.categories.map((cat, rowIdx) => (
-                        <tr key={rowIdx} className="group">
-                          <td className="p-5 font-black text-xs text-slate-600 border-b border-slate-100 bg-white uppercase tracking-wider group-hover:text-indigo-600 transition-colors">{cat.name}</td>
+                        <tr key={rowIdx} className="hover:bg-slate-50 transition-colors">
+                          <td className="p-4 font-bold text-xs text-slate-600 border-b uppercase">{cat.name}</td>
                           {cat.scores.map((score, colIdx) => (
-                            <td key={colIdx} className="p-4 text-center border-b border-slate-100">
-                              <div className={`py-3 px-1 rounded-2xl font-black text-xs shadow-sm transition-all group-hover:scale-105 ${getHeatmapColor(score)}`}>
-                                {score.toFixed(2)}
-                              </div>
+                            <td key={colIdx} className="p-3 text-center border-b">
+                              <div className={`py-2 rounded-xl font-black text-xs ${getHeatmapColor(score)}`}>{score.toFixed(2)}</div>
                             </td>
                           ))}
                         </tr>
@@ -345,186 +322,175 @@ const App = () => {
           {activeTab === 'productivity' && (
             <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-8">
               <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div className="bg-slate-900 p-8 rounded-[2.5rem] shadow-2xl flex flex-col justify-between group overflow-hidden relative">
-                  <div className="relative z-10">
-                    <p className="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Total Procesos</p>
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-6xl font-black text-white tracking-tighter">{productivityStats.totalProcesos}</span>
-                      <span className="text-slate-500 text-[10px] font-black tracking-widest uppercase">Resultados</span>
-                    </div>
-                  </div>
-                  <Briefcase className="absolute -right-4 -bottom-4 w-32 h-32 text-white/5 group-hover:scale-110 transition-transform duration-700" />
+                <div className="bg-slate-900 p-8 rounded-[2rem] shadow-xl flex flex-col justify-between group overflow-hidden relative">
+                    <p className="text-indigo-400 text-[10px] font-black uppercase tracking-widest mb-2 relative z-10">Total Procesos</p>
+                    <span className="text-6xl font-black text-white tracking-tighter relative z-10">{productivityStats.totalProcesos}</span>
+                  <Briefcase className="absolute -right-4 -bottom-4 w-32 h-32 text-white/5 group-hover:scale-110 transition-transform" />
                 </div>
-                <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-center">
-                   <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Intervenidos</p>
-                   <h4 className="text-4xl font-black text-slate-800 tracking-tight">{productivityStats.intervenidos} <span className="text-emerald-500 text-sm">Ejecutados</span></h4>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 flex flex-col justify-center">
+                   <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">Intervenidos</p>
+                   <h4 className="text-4xl font-black text-slate-800">{productivityStats.intervenidos}</h4>
                 </div>
-                <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-center">
-                   <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Alcance Institucional</p>
-                   <h4 className="text-4xl font-black text-slate-800 tracking-tight">{productivityStats.totalCargos} <span className="text-indigo-500 text-sm">Cargos</span></h4>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 flex flex-col justify-center">
+                   <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mb-1">Cargos Analizados</p>
+                   <h4 className="text-4xl font-black text-slate-800">{productivityStats.totalCargos}</h4>
                 </div>
-                <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-center">
-                   <p className="text-rose-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Pico de Demanda</p>
-                   <h4 className="text-4xl font-black text-slate-800 tracking-tight">2024</h4>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-100 flex flex-col justify-center">
+                   <p className="text-indigo-600 text-[10px] font-black uppercase tracking-widest mb-1">Pico Operativo</p>
+                   <h4 className="text-4xl font-black text-slate-800">2024</h4>
                 </div>
               </section>
-              <div className="bg-white p-12 rounded-[3.5rem] shadow-sm border border-slate-100 h-[500px]">
-                <h3 className="font-black text-2xl text-slate-800 mb-10 uppercase tracking-tight flex items-center gap-4">
-                  <BarChart3 className="text-indigo-500 w-8 h-8" />
-                  Curva de Productividad Operativa (2023 - 2026)
-                </h3>
+              <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 h-[450px]">
+                <h3 className="font-black text-xl text-slate-800 mb-8 uppercase tracking-tight">Evolución de Gestión (2023 - 2026)</h3>
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={dataProductivity}>
                     <defs>
-                      <linearGradient id="colorProd" x1="0" y1="0" x2="0" y2="1">
+                      <linearGradient id="colorP" x1="0" y1="0" x2="0" y2="1">
                         <stop offset="5%" stopColor="#4F46E5" stopOpacity={0.2}/>
                         <stop offset="95%" stopColor="#4F46E5" stopOpacity={0}/>
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: '#64748b', fontWeight: 'bold'}} />
+                    <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fill: '#94a3b8', fontWeight: 'bold'}} />
                     <YAxis axisLine={false} tickLine={false} />
-                    <Tooltip 
-                       contentStyle={{borderRadius: '20px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.1)'}}
-                    />
-                    <Area type="monotone" dataKey="procesos" stroke="#4F46E5" strokeWidth={6} fill="url(#colorProd)" />
+                    <Tooltip contentStyle={{borderRadius: '16px', border: 'none', boxShadow: '0 10px 25px rgba(0,0,0,0.05)'}} />
+                    <Area type="monotone" dataKey="procesos" stroke="#4F46E5" strokeWidth={5} fill="url(#colorP)" />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>
             </div>
           )}
 
-          {/* --- SESIÓN 3: ARQUETIPOS --- */}
+          {/* --- SESIÓN 3: ARQUETIPOS (DISEÑO OPTIMIZADO) --- */}
           {activeTab === 'archetypes' && (
-            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-16 pb-12">
+            <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 space-y-12 pb-12">
               
-              {/* Resumen General Arquetipos */}
-              <section className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div className="lg:col-span-1 bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100 border-l-[12px] border-l-indigo-600 flex flex-col justify-center">
-                  <div className="flex items-center gap-4 mb-6">
-                    <Users className="w-10 h-10 text-indigo-600" />
-                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">Estructura Demográfica</h3>
-                  </div>
-                  <p className="text-3xl font-black text-indigo-700 mb-1">Millennials (Gen Y)</p>
-                  <p className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] leading-relaxed">Población mayoritaria con el 44% de participación en la muestra institucional.</p>
+              {/* Header Editorial */}
+              <section className="bg-white p-10 rounded-[2.5rem] border border-slate-100 flex flex-col lg:flex-row items-center gap-12">
+                <div className="lg:w-1/2">
+                   <h3 className="text-sm font-black text-indigo-600 uppercase tracking-[0.3em] mb-4">Análisis de Cohortes</h3>
+                   <h2 className="text-4xl font-black text-slate-900 tracking-tight leading-none mb-6">El ADN de nuestra Gente Comfamiliar</h2>
+                   <p className="text-slate-500 text-lg leading-relaxed max-w-xl">
+                      Entender la diversidad generacional nos permite diseñar estrategias de bienestar que resuenen con los propósitos individuales. 
+                      Los <span className="font-bold text-indigo-700">Millennials</span> lideran nuestra composición con un 44%.
+                   </p>
                 </div>
-                <div className="lg:col-span-2 bg-white p-10 rounded-[3rem] shadow-sm border border-slate-100">
-                  <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-8 flex items-center gap-3">Análisis Comparativo de Necesidades Prioritarias</h3>
-                  <div className="h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={archetypes}>
-                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                        <XAxis dataKey="id" tickLine={false} axisLine={false} tick={{fontWeight: 'bold'}} />
-                        <Tooltip contentStyle={{borderRadius: '16px', border: 'none'}} />
-                        <Bar dataKey="stats.mascota" name="% Interés Mascotas" fill="#3b82f6" radius={[6, 6, 0, 0]} />
-                        <Bar dataKey="stats.pre" name="% Interés Prepensión" fill="#f59e0b" radius={[6, 6, 0, 0]} />
+                <div className="lg:w-1/2 w-full h-48">
+                   <ResponsiveContainer width="100%" height="100%">
+                      <BarChart data={archetypes} margin={{top: 0, right: 0, left: 0, bottom: 0}}>
+                        <Tooltip cursor={{fill: 'transparent'}} contentStyle={{borderRadius: '16px', border: 'none'}} />
+                        <Bar dataKey="stats.pop" name="Población" radius={[8, 8, 8, 8]}>
+                          {archetypes.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} fillOpacity={0.8} />
+                          ))}
+                        </Bar>
+                        <XAxis dataKey="tag" axisLine={false} tickLine={false} tick={{fontWeight: 'bold', fontSize: 12, fill: '#64748b'}} />
                       </BarChart>
-                    </ResponsiveContainer>
-                  </div>
+                   </ResponsiveContainer>
                 </div>
               </section>
 
-              {/* Grid Detallado de Arquetipos */}
-              <div className="space-y-24">
+              {/* Grid Detallado Premium */}
+              <div className="grid grid-cols-1 gap-12">
                 {archetypes.map((arc, index) => (
-                  <section key={index} className="bg-white rounded-[4.5rem] shadow-sm border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-700 relative group">
-                    {/* Generación Identificador */}
-                    <div className="absolute top-0 right-12 px-10 py-4 rounded-b-[2.5rem] font-black text-white text-[11px] uppercase tracking-[0.4em] shadow-2xl z-20 group-hover:translate-y-1 transition-transform" style={{backgroundColor: arc.color}}>
+                  <section key={index} className="bg-white rounded-[3rem] shadow-sm border border-slate-100 overflow-hidden relative group transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200">
+                    {/* Badge de Generación */}
+                    <div className="absolute top-0 right-12 px-8 py-3 rounded-b-[1.5rem] font-black text-white text-[10px] uppercase tracking-widest z-20 shadow-lg" style={{backgroundColor: arc.color}}>
                       {arc.gen}
                     </div>
 
-                    <div className="border-t-[16px]" style={{borderColor: arc.color}}>
-                      <div className="p-14 md:p-20">
-                        <div className="flex flex-col lg:flex-row gap-24">
-                          
-                          {/* Lado Izquierdo: Identidad */}
-                          <div className="lg:w-1/3 space-y-12">
-                            <div className="flex items-center gap-10">
-                              <div className="w-40 h-40 rounded-[4rem] border-[6px] overflow-hidden bg-white shadow-2xl shadow-slate-300 relative group-hover:scale-105 transition-transform duration-700" style={{borderColor: arc.color}}>
-                                <img src={arc.image} alt={arc.persona} className="w-full h-full object-cover" />
+                    <div className="flex flex-col lg:flex-row">
+                      {/* Perfil Visual (Izquierda) */}
+                      <div className="lg:w-[40%] bg-slate-50/50 p-10 md:p-14 flex flex-col border-r border-slate-50">
+                        <div className="flex items-center gap-8 mb-10">
+                          <div className="w-32 h-32 rounded-[2.5rem] overflow-hidden border-[6px] shadow-2xl transition-transform group-hover:scale-105 duration-700" style={{borderColor: arc.color}}>
+                            <img src={arc.image} alt={arc.persona} className="w-full h-full object-cover" />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-black uppercase tracking-widest mb-1" style={{color: arc.color}}>ARQUETIPO: {arc.persona}</p>
+                            <h3 className="text-4xl font-black text-slate-900 tracking-tight">{arc.age}</h3>
+                            <p className="font-bold text-slate-400 text-sm mt-2 uppercase">{arc.title}</p>
+                          </div>
+                        </div>
+
+                        <div className="relative mb-10">
+                           <Sparkles className="absolute -top-6 -left-6 text-slate-200 w-16 h-16 opacity-30" />
+                           <p className="text-2xl text-slate-600 italic font-medium leading-tight relative z-10 border-l-[6px] pl-8" style={{borderColor: arc.color}}>
+                              "{arc.quote}"
+                           </p>
+                        </div>
+
+                        <div className="space-y-6">
+                           <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">ADN Comfamiliar</h4>
+                           <ul className="space-y-4">
+                             {arc.adn.map((text, i) => (
+                               <li key={i} className="flex gap-4 text-sm font-bold text-slate-600 items-start">
+                                 <div className="p-1 rounded-md mt-0.5" style={{backgroundColor: `${arc.color}15`}}>
+                                    <CheckCircle size={16} style={{color: arc.color}} />
+                                 </div>
+                                 {text}
+                               </li>
+                             ))}
+                           </ul>
+                        </div>
+                      </div>
+
+                      {/* Análisis y Acción (Derecha) */}
+                      <div className="lg:w-[60%] p-10 md:p-14 flex flex-col justify-between">
+                        <div>
+                          <div className="flex items-center justify-between mb-10">
+                             <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                <Target size={16} /> Indicadores de Interés Prioritario
+                             </h4>
+                             <div className="bg-slate-100 px-4 py-1 rounded-full text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                                Muestra: {arc.stats.pop} Pers.
+                             </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                             {Object.entries(arc.stats).filter(([k]) => k !== 'pop').map(([key, val]) => (
+                               <div key={key}>
+                                 <div className="flex justify-between text-[11px] font-black text-slate-500 mb-3 uppercase tracking-wider">
+                                   <span>{key === 'mascota' ? 'Cuidado Mascotas' : key === 'edu' ? 'Formación Avanzada' : key === 'salud' ? 'Bienestar de Salud' : 'Preparación Retiro'}</span>
+                                   <span className="text-sm" style={{color: arc.color}}>{val}%</span>
+                                 </div>
+                                 <div className="h-4 w-full bg-slate-100 rounded-full overflow-hidden p-1 shadow-inner relative">
+                                   <div className="h-full rounded-full transition-all duration-1000 shadow-md" style={{backgroundColor: arc.color, width: `${val}%`}}></div>
+                                 </div>
+                               </div>
+                             ))}
+                          </div>
+
+                          <div className="mt-14 space-y-4">
+                             <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Propulsores Motivacionales</h4>
+                             <div className="flex flex-wrap gap-3">
+                                {arc.motivators.map((m, i) => (
+                                  <span key={i} className="px-5 py-2 bg-slate-50 border border-slate-100 text-slate-600 text-[11px] font-black rounded-xl uppercase tracking-wider transition-colors hover:border-indigo-200">
+                                     {m}
+                                  </span>
+                                ))}
+                             </div>
+                          </div>
+                        </div>
+
+                        {/* Card de Estrategia Premium */}
+                        <div className="mt-14 p-8 rounded-[2rem] text-white shadow-xl relative overflow-hidden group/strat" style={{background: `linear-gradient(145deg, ${arc.color}, ${arc.color}DD)`}}>
+                           <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                              <div className="p-6 bg-white/20 rounded-[1.5rem] shrink-0 backdrop-blur-md border border-white/10 shadow-lg transform group-hover/strat:rotate-6 transition-transform duration-500">
+                                 {arc.strategy.icon}
                               </div>
                               <div>
-                                <p className="text-[11px] font-black uppercase tracking-[0.4em] mb-3" style={{color: arc.color}}>Perfil: {arc.persona.split(',')[0]}</p>
-                                <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none">{arc.persona}</h2>
-                                <p className="font-bold text-slate-400 text-base mt-4 uppercase tracking-[0.2em]">{arc.title}</p>
+                                 <h4 className="text-sm font-black uppercase tracking-widest mb-1 opacity-80">Estrategia Sugerida</h4>
+                                 <h5 className="text-3xl font-black mb-2 tracking-tight">{arc.strategy.title}</h5>
+                                 <p className="text-white/90 text-lg font-medium leading-snug">{arc.strategy.desc}</p>
                               </div>
-                            </div>
-                            
-                            <div className="relative">
-                               <Sparkles className="absolute -top-8 -left-8 text-slate-100 w-20 h-20 -z-0 opacity-50" />
-                               <p className="text-3xl text-slate-600 italic border-l-[10px] pl-12 py-6 font-medium leading-relaxed relative z-10" style={{borderColor: arc.color}}>"{arc.quote}"</p>
-                            </div>
-
-                            <div className="grid grid-cols-2 gap-6">
-                               <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 shadow-inner group-hover:bg-white group-hover:border-slate-200 transition-all">
-                                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Población Base</span>
-                                  <span className="text-5xl font-black text-slate-800">{arc.stats.pop}</span>
-                                  <span className="text-[10px] font-bold text-slate-400 block mt-2 uppercase tracking-widest">REGISTROS</span>
-                               </div>
-                               <div className="p-8 bg-slate-50 rounded-[2.5rem] border border-slate-100 shadow-inner group-hover:bg-white group-hover:border-slate-200 transition-all">
-                                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Foco Vital</span>
-                                  <span className="text-sm font-black text-slate-700 uppercase leading-tight block mt-4 tracking-tighter">
-                                     {arc.id === 'z' ? 'Desarrollo & Flexibilidad' : arc.id === 'y' ? 'Optimización Financiera' : arc.id === 'x' ? 'Estabilidad de Hogar' : 'Trascedencia & Legado'}
-                                  </span>
-                               </div>
-                            </div>
-
-                            <div className="space-y-6 pt-6 border-t border-slate-50">
-                              <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Propulsores Motivacionales</h4>
-                              <div className="flex flex-wrap gap-4">
-                                {arc.motivators.map((m, i) => (
-                                  <span key={i} className="px-7 py-3.5 bg-white border border-slate-200 text-slate-700 text-xs font-black rounded-full shadow-sm hover:border-indigo-300 transition-colors cursor-default uppercase tracking-wider">{m}</span>
-                                ))}
+                              <div className="ml-auto hidden md:block">
+                                 <button className="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/10">
+                                    <ArrowRight size={24} />
+                                 </button>
                               </div>
-                            </div>
-                          </div>
-
-                          {/* Lado Derecho: Análisis */}
-                          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12">
-                            
-                            <div className="bg-slate-50 p-14 rounded-[4rem] border border-slate-100 shadow-inner group-hover:bg-white transition-all">
-                              <h3 className="font-black text-slate-800 mb-14 flex items-center gap-5 uppercase tracking-[0.2em] text-[12px] border-b border-slate-100 pb-6"><Target size={30} className="text-slate-300"/> Indicadores de Necesidad</h3>
-                              <div className="space-y-14">
-                                {Object.entries(arc.stats).filter(([k]) => k !== 'pop').map(([key, val]) => (
-                                  <div key={key}>
-                                    <div className="flex justify-between text-[11px] font-black text-slate-500 mb-5 uppercase tracking-[0.2em]">
-                                      <span>{key === 'mascota' ? '🐶 Cuidado de Mascotas' : key === 'edu' ? '🎓 Formación Avanzada' : key === 'salud' ? '⚕️ Bienestar de Salud' : '🌅 Preparación para el Retiro'}</span>
-                                      <span className="text-lg" style={{color: arc.color}}>{val}%</span>
-                                    </div>
-                                    <div className="h-6 w-full bg-slate-200 rounded-full overflow-hidden p-1.5 shadow-inner">
-                                      <div className="h-full rounded-full transition-all duration-1000 shadow-md" style={{backgroundColor: arc.color, width: `${val}%`}}></div>
-                                    </div>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-
-                            <div className="p-14 rounded-[4rem] border flex flex-col justify-between group-hover:bg-white transition-all" style={{backgroundColor: `${arc.color}05`, borderColor: `${arc.color}15`}}>
-                               <div>
-                                  <h3 className="font-black mb-10 flex items-center gap-5 uppercase tracking-[0.2em] text-[12px] border-b pb-6" style={{color: arc.color, borderColor: `${arc.color}15`}}><Sparkles size={30}/> ADN Comfamiliar</h3>
-                                  <ul className="space-y-10">
-                                    {arc.adn.map((text, i) => (
-                                      <li key={i} className="flex gap-6 text-base font-bold leading-relaxed text-slate-600">
-                                        <div className="p-2 rounded-xl shrink-0 h-fit shadow-sm" style={{backgroundColor: `${arc.color}20`}}>
-                                           <CheckCircle size={24} style={{color: arc.color}} className="shrink-0" />
-                                        </div>
-                                        {text}
-                                      </li>
-                                    ))}
-                                  </ul>
-                               </div>
-                            </div>
-
-                            <div className="md:col-span-2 p-14 rounded-[4.5rem] text-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex items-center gap-16 relative overflow-hidden group/strat" style={{background: `linear-gradient(135deg, ${arc.color}, ${arc.color}CC)`}}>
-                              <div className="p-10 bg-white/20 rounded-[3.5rem] shrink-0 transform group-hover/strat:scale-110 group-hover/strat:rotate-6 transition-all duration-1000 shadow-2xl backdrop-blur-sm border border-white/20">{arc.strategy.icon}</div>
-                              <div className="relative z-10">
-                                <h4 className="text-4xl font-black mb-4 uppercase tracking-tighter leading-none">Estrategia sugerida:<br/>{arc.strategy.title}</h4>
-                                <p className="text-white/90 text-2xl font-medium leading-tight max-w-2xl tracking-tight">{arc.strategy.desc}</p>
-                              </div>
-                              <div className="absolute -right-20 -top-20 w-96 h-96 bg-white/10 rounded-full blur-[120px] group-hover/strat:bg-white/20 transition-all duration-1000"></div>
-                            </div>
-
-                          </div>
+                           </div>
+                           <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-[100px] pointer-events-none"></div>
                         </div>
                       </div>
                     </div>

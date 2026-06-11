@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligence Dashboard - Comfamiliar</title>
+    <title>Intelligence Dashboard - Comfamiliar Risaralda</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -57,10 +57,10 @@
 </head>
 <body class="min-h-screen flex">
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR INSTITUCIONAL -->
     <aside id="sidebar" class="bg-white border-r border-slate-200 sidebar-transition fixed h-full z-50 w-64 no-print">
-        <div class="p-6 flex flex-col items-center border-b border-slate-50 min-h-[140px] justify-center">
-            <div id="logo-container" class="w-40 transition-all duration-500">
+        <div class="p-4 flex flex-col items-center border-b border-slate-50 min-h-[130px] justify-center">
+            <div id="logo-container" class="w-36 transition-all duration-500">
                 <img src="https://i.imgur.com/mCMotqk.png" alt="Logo Comfamiliar" class="w-full h-auto object-contain">
             </div>
         </div>
@@ -88,22 +88,21 @@
         </div>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    <!-- CUERPO PRINCIPAL DEL DASHBOARD -->
     <div id="main-content" class="flex-1 sidebar-transition ml-64">
         
         <!-- TOPBAR -->
         <header class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 px-8 h-20 flex items-center justify-between no-print">
             <div>
-                <h2 class="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">Panel de Control Estratégico</h2>
+                <h2 class="text-[10px] font-black text-indigo-500 uppercase tracking-[0.3em] mb-1">Centro de Inteligencia Organizacional</h2>
                 <p id="current-tab-title" class="text-slate-900 font-black text-xl tracking-tight">Happiness Index</p>
             </div>
             <div class="flex items-center gap-4">
-                <div class="bg-emerald-50 text-emerald-700 px-4 py-2 rounded-2xl border border-emerald-100 flex items-center gap-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span class="text-[10px] font-black uppercase tracking-wider">Datos 2024-2025</span>
+                <!-- Filtro de Año dinámico -->
+                <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-2xl border border-slate-200 no-print">
+                    <button onclick="changeSelectedYear('2024')" id="year-btn-2024" class="year-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-50">2024</button>
+                    <button onclick="changeSelectedYear('2025')" id="year-btn-2025" class="year-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-500 hover:bg-slate-50">2025</button>
+                    <button onclick="changeSelectedYear('2026')" id="year-btn-2026" class="year-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white text-indigo-600 shadow-sm">2026</button>
                 </div>
                 <button onclick="window.print()" class="p-2.5 bg-slate-900 text-white rounded-xl hover:bg-indigo-600 transition-all shadow-lg">
                     <i data-lucide="printer" class="w-5 h-5"></i>
@@ -113,40 +112,45 @@
 
         <main class="p-8 max-w-7xl mx-auto space-y-12">
 
-            <!-- TAB: HAPPINESS -->
+            <!-- SESIÓN 1: BUILDING HAPPINESS -->
             <section id="tab-happiness" class="tab-content active space-y-12">
-                <!-- KPIs Destacados -->
+                
+                <!-- Tarjetas KPI Principales con Históricos -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 relative overflow-hidden shadow-sm">
                         <div class="relative z-10">
-                            <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-2">Puntaje Global</p>
-                            <h3 class="text-6xl font-black text-slate-800 tracking-tighter">80%</h3>
-                            <div class="mt-4 inline-flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-black">
-                                <i data-lucide="trending-up" class="w-3 h-3"></i> +5.0% VS 2024
+                            <p class="text-[10px] font-black text-indigo-500 uppercase tracking-widest mb-2">Resultado General Año Seleccionado</p>
+                            <h3 id="kpi-global-score" class="text-6xl font-black text-slate-800 tracking-tighter">77.28%</h3>
+                            <div id="kpi-trend-container" class="mt-4 inline-flex items-center gap-2 bg-rose-50 text-rose-600 px-3 py-1 rounded-full text-[10px] font-black">
+                                <i data-lucide="trending-down" class="w-3 h-3"></i> -2.88 VS 2025 (80.16%)
                             </div>
                         </div>
                         <i data-lucide="smile" class="absolute -right-6 -bottom-6 w-44 h-44 text-slate-50"></i>
                     </div>
-                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col justify-center">
-                        <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Máximo Desempeño</p>
-                        <h3 class="text-3xl font-black text-slate-800">Sostenibilidad</h3>
-                        <p class="text-indigo-600 font-black text-2xl">93.5%</p>
+
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm relative overflow-hidden">
+                        <p class="text-[10px] font-black text-emerald-600 uppercase tracking-widest mb-2">Participación de la Muestra</p>
+                        <h3 id="kpi-participation-score" class="text-5xl font-black text-slate-800 tracking-tight">69.97%</h3>
+                        <p id="kpi-participation-trend" class="text-rose-500 font-bold text-xs mt-3 flex items-center gap-1">
+                            <i data-lucide="arrow-down-right" class="w-4 h-4"></i> -10.51% vs 2025
+                        </p>
                     </div>
+
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col justify-center">
-                        <p class="text-[10px] font-black text-rose-400 uppercase tracking-widest mb-2">Atención Requerida</p>
-                        <h3 class="text-3xl font-black text-slate-800">Odontología</h3>
-                        <p class="text-rose-500 font-black text-2xl">40.8%</p>
+                        <p class="text-[10px] font-black text-amber-500 uppercase tracking-widest mb-2">Dimensión Líder del Año</p>
+                        <h3 id="kpi-leader-name" class="text-3xl font-black text-slate-800 tracking-tight">Sostenibilidad</h3>
+                        <p id="kpi-leader-score" class="text-indigo-600 font-black text-2xl">91.0%</p>
                     </div>
                 </div>
 
-                <!-- Matriz de Calor Detallada -->
+                <!-- Matriz de Desempeño Corporativo por Sub-área -->
                 <div class="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm">
                     <div class="flex items-center justify-between mb-8">
                         <div>
                             <h3 class="font-black text-2xl text-slate-800 flex items-center gap-3">
-                                <i data-lucide="grid" class="text-indigo-500"></i> Matriz de Felicidad por Sub-área
+                                <i data-lucide="grid" class="text-indigo-500"></i> Matriz de Desempeño por Sub-área
                             </h3>
-                            <p class="text-slate-400 text-sm font-medium mt-1">Identificación de brechas críticas por unidad organizacional</p>
+                            <p class="text-slate-400 text-sm font-medium mt-1">Mapa de calor interactivo por categoría y unidad organizacional</p>
                         </div>
                     </div>
                     <div class="overflow-x-auto rounded-3xl border border-slate-100 shadow-inner">
@@ -170,28 +174,67 @@
                     </div>
                 </div>
 
-                <!-- Gráficos Comparativos -->
+                <!-- Análisis de Tendencias y Gráficos -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm">
-                        <h4 class="font-black text-slate-800 mb-8 uppercase tracking-widest text-xs border-b pb-4">Progreso Anual por Categoría</h4>
-                        <div class="h-[300px]">
+                        <h4 class="font-black text-slate-800 mb-8 uppercase tracking-widest text-xs border-b pb-4">Evolución Anual por Categoría</h4>
+                        <div class="h-[320px]">
                             <canvas id="chart-categories"></canvas>
                         </div>
                     </div>
                     <div class="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm flex flex-col items-center">
-                        <h4 class="font-black text-slate-800 mb-8 uppercase tracking-widest text-xs border-b pb-4 w-full">Perfil Comparativo ADN</h4>
-                        <div class="w-full max-w-[380px]">
+                        <h4 class="font-black text-slate-800 mb-8 uppercase tracking-widest text-xs border-b pb-4 w-full">Perfil de Clima Organizacional (Radar)</h4>
+                        <div class="w-full max-w-[360px]">
                             <canvas id="chart-radar"></canvas>
                         </div>
                     </div>
                 </div>
 
-                <!-- Tablas de Honor y Oportunidad -->
+                <!-- NUEVA SECCIÓN: SEGMENTACIÓN DEMOGRÁFICA DE CLIMA -->
+                <section class="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm">
+                    <div class="border-b pb-4 mb-8">
+                        <h3 class="font-black text-2xl text-slate-800 flex items-center gap-3">
+                            <i data-lucide="bar-chart-2" class="text-indigo-500"></i> Segmentación Demográfica
+                        </h3>
+                        <p class="text-slate-400 text-sm font-medium mt-1">Desglose de promedios de clima por Sexo, Edad y Antigüedad para el periodo activo</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        <!-- Por Sexo -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <i data-lucide="users"></i> Por Sexo
+                            </h4>
+                            <div class="h-48">
+                                <canvas id="chart-gender"></canvas>
+                            </div>
+                        </div>
+                        <!-- Por Edad -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <i data-lucide="calendar-days"></i> Por Edad
+                            </h4>
+                            <div class="h-48">
+                                <canvas id="chart-age"></canvas>
+                            </div>
+                        </div>
+                        <!-- Por Antigüedad -->
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100">
+                            <h4 class="text-xs font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                <i data-lucide="clock"></i> Por Antigüedad
+                            </h4>
+                            <div class="h-48">
+                                <canvas id="chart-tenure"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Rankings de Gestión -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2 bg-indigo-50 text-indigo-600 rounded-xl"><i data-lucide="award"></i></div>
-                            <h4 class="font-black text-slate-800 uppercase tracking-tight">Mejores Evaluados</h4>
+                            <h4 class="font-black text-slate-800 uppercase tracking-tight">Mejores Evaluados del Año</h4>
                         </div>
                         <div id="top-list" class="space-y-4">
                             <!-- Populated -->
@@ -200,7 +243,7 @@
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
                         <div class="flex items-center gap-3 mb-6">
                             <div class="p-2 bg-rose-50 text-rose-600 rounded-xl"><i data-lucide="alert-circle"></i></div>
-                            <h4 class="font-black text-slate-800 uppercase tracking-tight">Oportunidades Críticas</h4>
+                            <h4 class="font-black text-slate-800 uppercase tracking-tight">Puntos de Intervención Críticos</h4>
                         </div>
                         <div id="bottom-list" class="space-y-4">
                             <!-- Populated -->
@@ -209,33 +252,33 @@
                 </div>
             </section>
 
-            <!-- TAB: PRODUCTIVITY -->
+            <!-- SESIÓN 2: PRODUCTIVIDAD -->
             <section id="tab-productivity" class="tab-content space-y-12">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <div class="bg-slate-900 p-8 rounded-[2.5rem] shadow-xl text-white relative overflow-hidden">
-                        <p class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Total Estudios</p>
+                        <p class="text-indigo-400 text-[10px] font-black uppercase tracking-[0.3em] mb-2">Total Estudios Realizados</p>
                         <h3 class="text-7xl font-black tracking-tighter">43</h3>
                         <i data-lucide="activity" class="absolute -right-4 -bottom-4 w-32 h-32 opacity-10"></i>
                     </div>
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                        <p class="text-slate-400 text-[10px] font-black uppercase mb-1">Intervenidos</p>
+                        <p class="text-slate-400 text-[10px] font-black uppercase mb-1">Procesos Intervenidos</p>
                         <h4 class="text-4xl font-black text-slate-800">35</h4>
                         <div class="w-full bg-slate-100 h-1.5 rounded-full mt-4">
-                            <div class="bg-emerald-500 h-full rounded-full" style="width: 81%"></div>
+                            <div class="bg-indigo-600 h-full rounded-full" style="width: 81.3%"></div>
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                        <p class="text-slate-400 text-[10px] font-black uppercase mb-1">Cargos Analizados</p>
+                        <p class="text-slate-400 text-[10px] font-black uppercase mb-1">Total Cargos Analizados</p>
                         <h4 class="text-4xl font-black text-slate-800">77</h4>
                     </div>
                     <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm">
-                        <p class="text-indigo-600 text-[10px] font-black uppercase mb-1">Pico Operativo</p>
+                        <p class="text-indigo-600 text-[10px] font-black uppercase mb-1">Pico de Gestión</p>
                         <h4 class="text-4xl font-black text-slate-800">2024</h4>
                     </div>
                 </div>
                 <div class="bg-white p-12 rounded-[3rem] border border-slate-100 shadow-sm">
                     <h3 class="font-black text-xl text-slate-800 mb-10 flex items-center gap-4 uppercase tracking-tighter">
-                        <i data-lucide="bar-chart-3" class="text-indigo-500"></i> Evolución de Procesos (2023 - 2026)
+                        <i data-lucide="bar-chart-3" class="text-indigo-500"></i> Distribución Cronológica de Carga Laboral (2023 - 2026)
                     </h3>
                     <div class="h-[400px]">
                         <canvas id="chart-productivity"></canvas>
@@ -243,21 +286,19 @@
                 </div>
             </section>
 
-            <!-- TAB: ARCHETYPES -->
+            <!-- SESIÓN 3: ARQUETIPOS GENERACIONALES -->
             <section id="tab-archetypes" class="tab-content space-y-16 pb-20">
-                <!-- Header Editorial -->
-                <div class="bg-indigo-900 text-white p-12 rounded-[3.5rem] flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden shadow-2xl">
+                <div class="bg-indigo-950 text-white p-12 rounded-[3.5rem] flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden shadow-2xl">
                     <div class="lg:w-1/2 z-10">
-                        <h3 class="text-indigo-300 font-black uppercase tracking-[0.4em] text-xs mb-4">Mapeo de Talento</h3>
-                        <h2 class="text-5xl font-black tracking-tighter leading-none mb-6">El ADN de nuestra Gente Comfamiliar</h2>
-                        <p class="text-indigo-100/80 text-lg leading-relaxed max-w-xl">
-                            Estrategias de bienestar diseñadas para conectar con el propósito individual de cada generación. Los <b>Millennials</b> lideran nuestra fuerza laboral con el 44% de participación.
+                        <h3 class="text-indigo-300 font-black uppercase tracking-[0.4em] text-xs mb-4">Segmentación Estratégica</h3>
+                        <h2 class="text-5xl font-black tracking-tighter leading-none mb-6">Necesidades y Expectativas por Cohorte</h2>
+                        <p class="text-indigo-100/70 text-lg leading-relaxed max-w-xl">
+                            Modelos de perfiles generacionales basados en prioridades de vida para el diseño adaptativo de planes de bienestar institucional.
                         </p>
                     </div>
                     <div class="lg:w-1/2 w-full h-56 z-10">
                         <canvas id="chart-archetype-pop"></canvas>
                     </div>
-                    <div class="absolute -right-20 -top-20 w-96 h-96 bg-indigo-500/20 rounded-full blur-[100px]"></div>
                 </div>
 
                 <div id="archetypes-container" class="space-y-16">
@@ -269,26 +310,105 @@
     </div>
 
     <script>
-        // --- DATA ---
-        const heatmapData = [
-            { name: 'Bienestar', scores: [83.37, 74.26, 82.44, 88.18, 75.38, 54.08, 79.45] },
-            { name: 'Compromiso', scores: [84.94, 80.26, 86.70, 90.14, 77.23, 66.07, 82.43] },
-            { name: 'Felicidad Org.', scores: [85.51, 88.58, 81.65, 94.96, 85.11, 53.57, 87.17] },
-            { name: 'Sostenibilidad', scores: [94.38, 93.78, 95.41, 93.05, 89.36, 84.52, 94.67] },
-            { name: 'Valoración', scores: [75.40, 64.74, 71.69, 75.13, 59.88, 40.82, 70.39] }
-        ];
-
-        const topAreas = [
-            { area: 'FINANCIERA', cat: 'Sostenibilidad', nota: 95.41 },
-            { area: 'FONDO', cat: 'Felicidad Org.', nota: 94.96 },
-            { area: 'SERVICIOS', cat: 'Sostenibilidad', nota: 94.67 }
-        ];
-
-        const bottomAreas = [
-            { area: 'ODONTOLOGÍA', cat: 'Valoración', nota: 40.82 },
-            { area: 'ODONTOLOGÍA', cat: 'Felicidad Org.', nota: 53.57 },
-            { area: 'MEDICINA', cat: 'Valoración', nota: 59.88 }
-        ];
+        // --- DATA ESTRUCTURADA POR PERIODO (2024, 2025, 2026) ---
+        const annualDatasets = {
+            '2024': {
+                globalScore: "75.02%",
+                participation: "63.67%",
+                trendHTML: `<i data-lucide="trending-up" class="w-3 h-3"></i> LÍNEA BASE ESTABLECIDA`,
+                trendClass: "bg-indigo-50 text-indigo-600",
+                participationTrend: `<i data-lucide="minus" class="w-4 h-4"></i> Registros iniciales`,
+                participationClass: "text-slate-400",
+                leaderName: "Sostenibilidad",
+                leaderScore: "90.1%",
+                heatmap: [
+                    { name: 'Bienestar', scores: [80.00, 71.00, 80.00, 85.00, 72.00, 51.63, 76.00] },
+                    { name: 'Compromiso', scores: [82.00, 78.00, 84.00, 88.00, 74.00, 68.60, 80.00] },
+                    { name: 'Felicidad Org.', scores: [83.00, 85.00, 87.74, 89.29, 83.00, 85.96, 84.00] },
+                    { name: 'Sostenibilidad', scores: [92.29, 88.95, 94.97, 92.14, 88.68, 94.74, 88.48] },
+                    { name: 'Valoración', scores: [51.77, 51.77, 68.06, 68.16, 50.67, 42.86, 67.23] }
+                ],
+                topAreas: [
+                    { area: 'FINANCIERA', cat: 'Sostenibilidad', nota: 94.97 },
+                    { area: 'ODONTOLOGÍA', cat: 'Sostenibilidad', nota: 94.74 },
+                    { area: 'ADMINISTRATIVA', cat: 'Sostenibilidad', nota: 92.29 }
+                ],
+                bottomAreas: [
+                    { area: 'ODONTOLOGÍA', cat: 'Valoración', nota: 42.86 },
+                    { area: 'MEDICINA', cat: 'Valoración', nota: 50.67 },
+                    { area: 'ODONTOLOGÍA', cat: 'Bienestar', nota: 51.63 }
+                ],
+                demographics: {
+                    gender: [74, 76],
+                    age: [76, 74, 74, 74],
+                    tenure: [78, 71, 72, 74]
+                }
+            },
+            '2025': {
+                globalScore: "80.16%",
+                participation: "80.48%",
+                trendHTML: `<i data-lucide="trending-up" class="w-3 h-3"></i> +5.14 VS 2024`,
+                trendClass: "bg-emerald-50 text-emerald-600",
+                participationTrend: `<i data-lucide="trending-up" class="w-4 h-4"></i> +16.81% vs 2024`,
+                participationClass: "text-emerald-500",
+                leaderName: "Sostenibilidad",
+                leaderScore: "93.5%",
+                heatmap: [
+                    { name: 'Bienestar', scores: [83.37, 74.26, 82.44, 88.18, 75.38, 54.08, 79.45] },
+                    { name: 'Compromiso', scores: [84.94, 80.26, 86.70, 90.14, 77.23, 66.07, 82.43] },
+                    { name: 'Felicidad Org.', scores: [85.51, 88.58, 81.65, 94.96, 85.11, 53.57, 87.17] },
+                    { name: 'Sostenibilidad', scores: [94.38, 93.78, 95.41, 93.05, 89.36, 84.52, 94.67] },
+                    { name: 'Valoración', scores: [75.40, 64.74, 71.69, 75.13, 59.88, 40.82, 70.39] }
+                ],
+                topAreas: [
+                    { area: 'FINANCIERA', cat: 'Sostenibilidad', nota: 95.41 },
+                    { area: 'FONDO', cat: 'Felicidad Org.', nota: 94.96 },
+                    { area: 'SERVICIOS', cat: 'Sostenibilidad', nota: 94.67 }
+                ],
+                bottomAreas: [
+                    { area: 'ODONTOLOGÍA', cat: 'Valoración', nota: 40.82 },
+                    { area: 'ODONTOLOGÍA', cat: 'Bienestar', nota: 54.08 },
+                    { area: 'MEDICINA', cat: 'Valoración', nota: 59.88 }
+                ],
+                demographics: {
+                    gender: [80, 79],
+                    age: [80, 78, 82, 82],
+                    tenure: [83, 77, 78, 80]
+                }
+            },
+            '2026': {
+                globalScore: "77.28%",
+                participation: "69.97%",
+                trendHTML: `<i data-lucide="trending-down" class="w-3 h-3"></i> -2.88 VS 2025`,
+                trendClass: "bg-rose-50 text-rose-600",
+                participationTrend: `<i data-lucide="arrow-down-right" class="w-4 h-4"></i> -10.51% vs 2025`,
+                participationClass: "text-rose-500",
+                leaderName: "Sostenibilidad",
+                leaderScore: "91.0%",
+                heatmap: [
+                    { name: 'Bienestar', scores: [82.00, 72.00, 81.00, 85.00, 73.00, 45.58, 77.00] },
+                    { name: 'Compromiso', scores: [83.00, 78.00, 85.00, 88.00, 75.00, 62.86, 80.00] },
+                    { name: 'Felicidad Org.', scores: [84.00, 86.00, 80.00, 91.00, 83.00, 51.00, 85.00] },
+                    { name: 'Sostenibilidad', scores: [93.18, 87.07, 92.56, 91.67, 93.33, 84.52, 91.41] },
+                    { name: 'Valoración', scores: [73.00, 60.30, 70.00, 73.00, 57.00, 54.42, 68.00] }
+                ],
+                topAreas: [
+                    { area: 'MEDICINA', cat: 'Sostenibilidad', nota: 93.33 },
+                    { area: 'ADMINISTRATIVA', cat: 'Sostenibilidad', nota: 93.18 },
+                    { area: 'FINANCIERA', cat: 'Sostenibilidad', nota: 92.56 }
+                ],
+                bottomAreas: [
+                    { area: 'ODONTOLOGÍA', cat: 'Bienestar', nota: 45.58 },
+                    { area: 'ODONTOLOGÍA', cat: 'Valoración', nota: 54.42 },
+                    { area: 'CLINICA', cat: 'Valoración', nota: 60.30 }
+                ],
+                demographics: {
+                    gender: [76, 78],
+                    age: [79, 76, 74, 78],
+                    tenure: [82, 74, 74, 77]
+                }
+            }
+        };
 
         const archetypes = [
             {
@@ -316,12 +436,12 @@
                 stats: { Mascota: 25, Educación: 37, Salud: 81, Retiro: 62 }, pop: 80,
                 motivators: ['Hogar', 'Salud Preventiva', 'Estabilidad'],
                 adn: ['Temas de crianza', 'Participación espiritual', 'Integración familiar'],
-                strategy: { title: 'Bienestar 360° Familiar', desc: 'Pólizas extendidas para hijos y talleres de inteligencia financiera en pareja.', icon: 'shield-check' }
+                strategy: { title: 'Bienestar 360° Familiar', desc: 'Pólizas de salud extendidas y educación financiera.', icon: 'shield-check' }
             },
             {
                 gen: 'Baby Boomers', persona: 'Roberto', age: '62 años', color: '#f59e0b',
                 image: 'https://i.imgur.com/kiMB1qT.png', title: 'Mentor del Legado',
-                quote: 'Quiero transmitir mi experiencia y enfocarme en una jubilación digna.',
+                quote: 'Quiero transmitir mi experiencia y enfocarme en una jubilación tranquila.',
                 stats: { Mascota: 8, Educación: 20, Salud: 88, Retiro: 96 }, pop: 25,
                 motivators: ['Legado', 'Tranquilidad', 'Homenajes'],
                 adn: ['Artes y Oficios', 'Medicina continua', 'Respeto Institucional'],
@@ -329,7 +449,16 @@
             }
         ];
 
-        // --- FUNCIONES UI ---
+        // --- INSTANCIAS DE GRÁFICOS ---
+        let categoriesChart = null;
+        let radarChart = null;
+        let genderChart = null;
+        let ageChart = null;
+        let tenureChart = null;
+
+        let activeYear = '2026';
+
+        // --- CONTROLADORES DE INTERFAZ ---
         function toggleSidebar() {
             const sb = document.getElementById('sidebar');
             const mc = document.getElementById('main-content');
@@ -337,21 +466,29 @@
             const statusCard = document.getElementById('status-card');
             const icon = document.getElementById('toggle-icon');
 
-            if (sb.classList.contains('w-64')) {
-                sb.classList.replace('w-64', 'w-24');
-                mc.classList.replace('ml-64', 'ml-24');
-                navTexts.forEach(t => t.classList.add('hidden'));
-                statusCard.classList.add('hidden');
-                icon.setAttribute('data-lucide', 'chevron-right');
-            } else {
-                sb.classList.replace('w-24', 'w-64');
-                mc.classList.replace('ml-24', 'ml-64');
-                navTexts.forEach(t => t.classList.remove('hidden'));
-                statusCard.classList.remove('hidden');
-                icon.setAttribute('data-lucide', 'chevron-left');
+            if (sb && mc && icon) {
+                if (sb.classList.contains('w-64')) {
+                    sb.classList.replace('w-64', 'w-24');
+                    mc.classList.replace('ml-64', 'ml-24');
+                    navTexts.forEach(t => t.classList.add('hidden'));
+                    if (statusCard) statusCard.classList.add('hidden');
+                    icon.setAttribute('data-lucide', 'chevron-right');
+                } else {
+                    sb.classList.replace('w-24', 'w-64');
+                    mc.classList.replace('ml-24', 'ml-64');
+                    navTexts.forEach(t => t.classList.remove('hidden'));
+                    if (statusCard) statusCard.classList.remove('hidden');
+                    icon.setAttribute('data-lucide', 'chevron-left');
+                }
+                lucide.createIcons();
             }
-            lucide.createIcons();
         }
+
+        const tabTitles = {
+            'happiness': "Happiness Index",
+            'productivity': "Productividad",
+            'archetypes': "Arquetipos ADN"
+        };
 
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -360,7 +497,7 @@
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('nav-' + tabId).classList.add('active');
 
-            document.getElementById('current-tab-title').innerText = tabId.replace('-', ' ');
+            document.getElementById('current-tab-title').innerText = tabTitles[tabId] || tabId;
         }
 
         function getHeatmapColor(score) {
@@ -372,13 +509,44 @@
             return 'bg-rose-500 text-white';
         }
 
-        // --- INICIALIZACIÓN ---
-        window.onload = () => {
-            lucide.createIcons();
+        // --- ACTUALIZAR DATOS POR AÑO ---
+        function changeSelectedYear(year) {
+            activeYear = year;
 
-            // Llenar Matriz
+            // Actualizar botones de año
+            document.querySelectorAll('.year-btn').forEach(btn => {
+                btn.classList.remove('bg-white', 'text-indigo-600', 'shadow-sm');
+                btn.classList.add('text-slate-500', 'hover:bg-slate-50');
+            });
+            const activeBtn = document.getElementById('year-btn-' + year);
+            if (activeBtn) {
+                activeBtn.classList.replace('text-slate-500', 'text-indigo-600');
+                activeBtn.classList.remove('hover:bg-slate-50');
+                activeBtn.classList.add('bg-white', 'shadow-sm');
+            }
+
+            const data = annualDatasets[year];
+            if (!data) return;
+
+            // Actualizar KPIs de texto
+            document.getElementById('kpi-global-score').innerText = data.globalScore;
+            document.getElementById('kpi-participation-score').innerText = data.participation;
+            document.getElementById('kpi-leader-name').innerText = data.leaderName;
+            document.getElementById('kpi-leader-score').innerText = data.leaderScore;
+
+            // Tendencias dinámicas
+            const trendContainer = document.getElementById('kpi-trend-container');
+            trendContainer.className = `mt-4 inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-black ${data.trendClass}`;
+            trendContainer.innerHTML = data.trendHTML;
+
+            const partTrend = document.getElementById('kpi-participation-trend');
+            partTrend.className = `font-bold text-xs mt-3 flex items-center gap-1 ${data.participationClass}`;
+            partTrend.innerHTML = data.participationTrend;
+
+            // Actualizar Matriz de Calor (Heatmap)
             const hBody = document.getElementById('heatmap-body');
-            heatmapData.forEach(row => {
+            hBody.innerHTML = '';
+            data.heatmap.forEach(row => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50 transition-colors";
                 tr.innerHTML = `<td class="p-6 font-black text-xs border-b bg-white uppercase text-slate-600">${row.name}</td>` +
@@ -386,9 +554,10 @@
                 hBody.appendChild(tr);
             });
 
-            // Llenar Listas
+            // Actualizar Rankings
             const topList = document.getElementById('top-list');
-            topAreas.forEach(a => {
+            topList.innerHTML = '';
+            data.topAreas.forEach(a => {
                 topList.innerHTML += `
                     <div class="flex justify-between items-center p-5 bg-slate-50 rounded-2xl border border-slate-100">
                         <div><span class="font-black text-slate-800 block text-sm">${a.area}</span><span class="text-[10px] text-indigo-500 font-bold uppercase">${a.cat}</span></div>
@@ -398,7 +567,8 @@
             });
 
             const bottomList = document.getElementById('bottom-list');
-            bottomAreas.forEach(a => {
+            bottomList.innerHTML = '';
+            data.bottomAreas.forEach(a => {
                 bottomList.innerHTML += `
                     <div class="flex justify-between items-center p-5 bg-rose-50 rounded-2xl border border-rose-100">
                         <div><span class="font-black text-rose-900 block text-sm">${a.area}</span><span class="text-[10px] text-rose-400 font-bold uppercase">${a.cat}</span></div>
@@ -407,7 +577,31 @@
                 `;
             });
 
-            // Llenar Arquetipos
+            // Actualizar Gráficos Demográficos
+            if (genderChart) {
+                genderChart.data.datasets[0].data = data.demographics.gender;
+                genderChart.update();
+            }
+            if (ageChart) {
+                ageChart.data.datasets[0].data = data.demographics.age;
+                ageChart.update();
+            }
+            if (tenureChart) {
+                tenureChart.data.datasets[0].data = data.demographics.tenure;
+                tenureChart.update();
+            }
+
+            lucide.createIcons();
+        }
+
+        // --- INICIALIZACIÓN ---
+        window.onload = () => {
+            lucide.createIcons();
+
+            // Cargar por defecto la data de 2026
+            changeSelectedYear('2026');
+
+            // Arquetipos
             const arcCont = document.getElementById('archetypes-container');
             archetypes.forEach(arc => {
                 const section = document.createElement('section');
@@ -421,14 +615,14 @@
                                     <img src="${arc.image}" alt="${arc.persona}" class="w-full h-full object-cover">
                                 </div>
                                 <div>
-                                    <p class="text-[10px] font-black uppercase tracking-widest" style="color: ${arc.color}">Arquetipo: ${arc.persona}</p>
-                                    <h3 class="text-4xl font-black text-slate-900 tracking-tight leading-none mt-1">${arc.age}</h3>
-                                    <p class="font-bold text-slate-400 text-sm mt-3 uppercase tracking-tight">${arc.title}</p>
+                                    <p class="text-[10px] font-black uppercase tracking-widest" style="color: ${arc.color}">Arquetipo</p>
+                                    <h3 class="text-4xl font-black text-slate-900 tracking-tight mt-1">${arc.persona}</h3>
+                                    <p class="font-bold text-slate-400 text-xs uppercase tracking-wider mt-2">${arc.title}</p>
                                 </div>
                             </div>
                             <p class="text-2xl text-slate-600 italic font-medium border-l-[8px] pl-10 mb-10 leading-snug" style="border-color: ${arc.color}">"${arc.quote}"</p>
                             <div class="space-y-6">
-                                <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b pb-2">ADN Comfamiliar</h4>
+                                <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-widest border-b pb-2">ADN del Arquetipo</h4>
                                 <ul class="space-y-4">
                                     ${arc.adn.map(t => `<li class="flex gap-4 text-sm font-bold text-slate-600 items-start"><i data-lucide="check-circle" class="w-5 h-5 shrink-0" style="color: ${arc.color}"></i> ${t}</li>`).join('')}
                                 </ul>
@@ -437,8 +631,8 @@
                         <div class="lg:w-[60%] p-12 flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-center mb-10">
-                                    <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2 font-bold"><i data-lucide="target" class="w-5 h-5 text-slate-300"></i> Foco de Interés</h4>
-                                    <div class="bg-white border border-slate-200 px-5 py-1.5 rounded-full text-[10px] font-black text-slate-500 uppercase tracking-widest shadow-sm">Población: ${arc.pop} Pers.</div>
+                                    <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] flex items-center gap-2"><i data-lucide="target" class="w-5 h-5"></i> Distribución de Prioridades</h4>
+                                    <div class="bg-white border border-slate-200 px-5 py-1.5 rounded-full text-[10px] font-black text-slate-500 uppercase tracking-widest shadow-sm">Muestra: ${arc.pop} Colaboradores</div>
                                 </div>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
                                     ${Object.entries(arc.stats).map(([k, v]) => `
@@ -458,7 +652,7 @@
                                 <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
                                     <div class="p-6 bg-white/20 rounded-[2rem] shrink-0 shadow-lg backdrop-blur-md border border-white/10 group-hover/strat:rotate-6 transition-transform"><i data-lucide="${arc.strategy.icon}" class="w-10 h-10 text-white"></i></div>
                                     <div>
-                                        <h4 class="text-sm font-black uppercase tracking-[0.2em] opacity-70 mb-1">Estrategia Sugerida</h4>
+                                        <h4 class="text-sm font-black uppercase tracking-[0.2em] opacity-70 mb-1">Estrategia Propuesta</h4>
                                         <h5 class="text-3xl font-black mb-2 tracking-tight">${arc.strategy.title}</h5>
                                         <p class="text-white/90 text-xl font-medium leading-tight tracking-tight">${arc.strategy.desc}</p>
                                     </div>
@@ -472,47 +666,99 @@
             });
             lucide.createIcons();
 
-            // --- CHARTS ---
-            new Chart(document.getElementById('chart-categories'), {
+            // --- GRÁFICOS INICIALES (CHART.JS) ---
+            categoriesChart = new Chart(document.getElementById('chart-categories'), {
                 type: 'bar',
                 data: {
-                    labels: ['Sostenibilidad', 'Felicidad', 'Compromiso', 'Bienestar', 'Valoración'],
+                    labels: ['Sostenibilidad', 'Felicidad Org.', 'Compromiso', 'Bienestar', 'Valoración'],
                     datasets: [
-                        { label: '2025', data: [93.5, 86.8, 82.9, 79.2, 69.8], backgroundColor: '#4F46E5', borderRadius: 12 },
+                        { label: '2026', data: [91.0, 84.4, 81.5, 71.9, 69.1], backgroundColor: '#4F46E5', borderRadius: 12 },
+                        { label: '2025', data: [93.5, 86.8, 82.9, 79.2, 69.8], backgroundColor: '#A5B4FC', borderRadius: 12 },
                         { label: '2024', data: [90.0, 84.5, 79.1, 72.8, 63.1], backgroundColor: '#E2E8F0', borderRadius: 12 }
                     ]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { font: { weight: 'bold' } } } } }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
             });
 
-            new Chart(document.getElementById('chart-radar'), {
+            radarChart = new Chart(document.getElementById('chart-radar'), {
                 type: 'radar',
                 data: {
-                    labels: ['Sostenibilidad', 'Felicidad', 'Compromiso', 'Bienestar', 'Valoración'],
+                    labels: ['Sostenibilidad', 'Felicidad Org.', 'Compromiso', 'Bienestar', 'Valoración'],
                     datasets: [
-                        {
-                            label: 'Periodo 2025', data: [93.5, 86.8, 82.9, 79.2, 69.8],
-                            fill: true, backgroundColor: 'rgba(79, 70, 229, 0.2)', borderColor: '#4F46E5', pointBackgroundColor: '#4F46E5', borderWidth: 3
-                        },
-                        {
-                            label: 'Periodo 2024', data: [90.0, 84.5, 79.1, 72.8, 63.1],
-                            fill: true, backgroundColor: 'rgba(148, 163, 184, 0.1)', borderColor: '#94A3B8', pointBackgroundColor: '#94A3B8', borderWidth: 2, borderDash: [5, 5]
-                        }
+                        { label: '2026', data: [91.0, 84.4, 81.5, 71.9, 69.1], fill: true, backgroundColor: 'rgba(79, 70, 229, 0.15)', borderColor: '#4F46E5', borderWidth: 3 },
+                        { label: '2025', data: [93.5, 86.8, 82.9, 79.2, 69.8], fill: true, backgroundColor: 'rgba(165, 180, 252, 0.1)', borderColor: '#A5B4FC', borderWidth: 2 },
+                        { label: '2024', data: [90.0, 84.5, 79.1, 72.8, 63.1], fill: true, backgroundColor: 'rgba(226, 232, 240, 0.05)', borderColor: '#94A3B8', borderWidth: 2, borderDash: [5,5] }
                     ]
                 },
-                options: { plugins: { legend: { position: 'bottom' } }, scales: { r: { suggestMin: 0, suggestMax: 100, grid: { color: '#E2E8F0' }, ticks: { display: false } } } }
+                options: { plugins: { legend: { position: 'bottom' } }, scales: { r: { grid: { color: '#E2E8F0' }, ticks: { display: false } } } }
             });
 
+            // --- GRÁFICOS DEMOGRÁFICOS ---
+            genderChart = new Chart(document.getElementById('chart-gender'), {
+                type: 'bar',
+                data: {
+                    labels: ['Mujeres', 'Hombres'],
+                    datasets: [{
+                        data: [76, 78],
+                        backgroundColor: ['#F472B6', '#3B82F6'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { min: 0, max: 100 } }
+                }
+            });
+
+            ageChart = new Chart(document.getElementById('chart-age'), {
+                type: 'bar',
+                data: {
+                    labels: ['0-30', '31-40', '41-50', '51+'],
+                    datasets: [{
+                        data: [79, 76, 74, 78],
+                        backgroundColor: '#8B5CF6',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { min: 0, max: 100 } }
+                }
+            });
+
+            tenureChart = new Chart(document.getElementById('chart-tenure'), {
+                type: 'bar',
+                data: {
+                    labels: ['0-1', '2-3', '4-5', '6+'],
+                    datasets: [{
+                        data: [82, 74, 74, 77],
+                        backgroundColor: '#F59E0B',
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { min: 0, max: 100 } }
+                }
+            });
+
+            // --- TAB 2 PRODUCTIVIDAD ---
             new Chart(document.getElementById('chart-productivity'), {
                 type: 'line',
                 data: {
                     labels: ['2023', '2024', '2025', '2026'],
                     datasets: [{
-                        label: 'Procesos Intervenidos', data: [9, 17, 14, 3],
+                        label: 'Estudios Operativos', data: [9, 17, 14, 3],
                         fill: true, borderColor: '#4F46E5', backgroundColor: 'rgba(79, 70, 229, 0.05)', tension: 0.4, borderWidth: 6, pointRadius: 6, pointBackgroundColor: '#FFF', pointBorderWidth: 3
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, grid: { color: '#F1F5F9' } }, x: { grid: { display: false } } } }
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true } } }
             });
 
             new Chart(document.getElementById('chart-archetype-pop'), {
@@ -531,6 +777,9 @@
                     scales: { x: { display: false }, y: { ticks: { color: '#FFF', font: { weight: 'bold' } }, grid: { display: false } } }
                 }
             });
+
+            // Forzar actualización inicial
+            changeSelectedYear('2026');
         };
     </script>
 </body>
